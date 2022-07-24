@@ -14,8 +14,10 @@ GPIO.setup(15, GPIO.OUT)
 GPIO.output(12, GPIO.HIGH)
 GPIO.output(11, GPIO.LOW)
 
-time.sleep(5)
+GPIO.output(15, GPIO.HIGH)
+GPIO.output(13, GPIO.LOW)
 
+time.sleep()
 # Stopping all motors
 GPIO.output(11, GPIO.LOW)
 GPIO.output(12, GPIO.LOW)
