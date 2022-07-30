@@ -15,18 +15,21 @@ GPIO.setup(12, GPIO.OUT)
 
 
 # Pin 11 and 12 allow us to control the direction of the motor
+myPWM = GPIO.PWM(3, 100)
+
+myPWM.start(40)
 GPIO.output(12, GPIO.LOW)
 GPIO.output(11, GPIO.HIGH)
 
-GPIO.output(3, GPIO.HIGH)
-
 # Wait 2.5 seconds
-time.sleep(2.5)
+time.sleep(5)
+
+
+myPWM.ChangeDutyCycle(99)
 
 # Reset all the GPIO pins by setting them to LOW
 GPIO.output(11, GPIO.LOW)
 GPIO.output(12, GPIO.LOW)
-
 
 # Cleaning up the GPIO pin for next user
 GPIO.cleanup()
