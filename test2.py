@@ -11,13 +11,20 @@ GPIO.setup(13, GPIO.OUT)
 GPIO.setup(15, GPIO.OUT)
 
 # Motor # 2
-myPWM = GPIO.PWM(5, 100)
-myPWM.ChangeDutyCycle(50)
+myPWM2 = GPIO.PWM(5, 1)
+
+myPWM2.start(50)
+
+
 GPIO.output(15, GPIO.HIGH)
 GPIO.output(13, GPIO.LOW)
 
+
 # Wait 2.5 seconds
-time.sleep(2.5)
+time.sleep(5)
+myPWM2.stop(50)
+
+myPWM2.ChangeDutyCycle(99)
 
 # Reset all the GPIO pins by setting them to LOW
 GPIO.output(13, GPIO.LOW)
