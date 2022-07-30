@@ -4,6 +4,7 @@ import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BOARD)
 
 # Motor #1
+# PWM Pin 3
 GPIO.setup(3, GPIO.OUT)
 GPIO.setup(11, GPIO.OUT)
 GPIO.setup(12, GPIO.OUT)
@@ -16,20 +17,22 @@ GPIO.setup(15, GPIO.OUT)
 
 # Motor # 1
 # Creating a PWM object
-myPWM = GPIO.PWM(3, 1)
-myPWM.ChangeDutyCycle(15)
+myPWM = GPIO.PWM(3, 100)
+myPWM.start(50)
+
 # Pin 11 and 12 allow us to control the direction of the motor
 GPIO.output(12, GPIO.LOW)
 GPIO.output(11, GPIO.HIGH)
 
 # Motor # 2
-myPWM2 = GPIO.PWM(5, 1)
-myPWM2.ChangeDutyCycle(15)
+myPWM2 = GPIO.PWM(5, 100)
+myPWM2.start(50)
+
 GPIO.output(15, GPIO.HIGH)
 GPIO.output(13, GPIO.LOW)
 
 # Wait 2.5 seconds
-time.sleep(2.5)
+time.sleep(5)
 
 # Reset all the GPIO pins by setting them to LOW
 GPIO.output(11, GPIO.LOW)
