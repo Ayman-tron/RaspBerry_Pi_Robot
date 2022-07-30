@@ -10,21 +10,21 @@ GPIO.setup(12, GPIO.OUT)
 
 # Motor #2
 # PWM Pin 5
-GPIO.setup(37, GPIO.OUT)
+GPIO.setup(5, GPIO.OUT)
 GPIO.setup(13, GPIO.OUT)
 GPIO.setup(15, GPIO.OUT)
 
 # Motor # 1
 # Creating a PWM object
-myPWM = GPIO.PWM(3, 100)
-myPWM.ChangeDutyCycle(100)
+myPWM = GPIO.PWM(3, 1)
+myPWM.ChangeDutyCycle(15)
 # Pin 11 and 12 allow us to control the direction of the motor
 GPIO.output(12, GPIO.LOW)
 GPIO.output(11, GPIO.HIGH)
 
 # Motor # 2
-myPWM = GPIO.PWM(37, 100)
-myPWM.ChangeDutyCycle(100)
+myPWM2 = GPIO.PWM(5, 1)
+myPWM2.ChangeDutyCycle(15)
 GPIO.output(15, GPIO.HIGH)
 GPIO.output(13, GPIO.LOW)
 

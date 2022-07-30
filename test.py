@@ -12,12 +12,13 @@ GPIO.setup(12, GPIO.OUT)
 
 # Motor # 1
 # Creating a PWM object
-myPWM = GPIO.PWM(3)
-myPWM.ChangeDutyCycle(50)
+
+
 # Pin 11 and 12 allow us to control the direction of the motor
 GPIO.output(12, GPIO.LOW)
 GPIO.output(11, GPIO.HIGH)
 
+GPIO.output(3, GPIO.HIGH)
 
 # Wait 2.5 seconds
 time.sleep(2.5)
