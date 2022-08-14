@@ -12,7 +12,6 @@ GPIO.setup(15, GPIO.OUT)
 
 # Motor # 2
 myPWM2 = GPIO.PWM(5, 1)
-
 myPWM2.start(50)
 
 
