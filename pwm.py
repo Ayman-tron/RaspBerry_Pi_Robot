@@ -68,7 +68,7 @@ def backward():
     GPIO.output(15, GPIO.LOW)
     GPIO.output(13, GPIO.HIGH)
 
-    time.sleep(0.5)
+    time.sleep(5)
 
 
 main()
