@@ -29,12 +29,6 @@ def main():
 
 
 def reset():
-
-    GPIO.output(11, GPIO.LOW)
-    GPIO.output(12, GPIO.LOW)
-    GPIO.output(13, GPIO.LOW)
-    GPIO.output(15, GPIO.LOW)
-
     # Cleaning up the GPIO pin for next user
     GPIO.cleanup()
 
