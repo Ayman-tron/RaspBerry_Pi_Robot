@@ -20,17 +20,10 @@ GPIO.setup(15, GPIO.OUT)
 def main():
     forward()
     forward()
-
  # Reset all the GPIO pins by setting them to LOW
 
 
 def reset():
-
-    GPIO.output(11, GPIO.LOW)
-    GPIO.output(12, GPIO.LOW)
-    GPIO.output(13, GPIO.LOW)
-    GPIO.output(15, GPIO.LOW)
-
     # Cleaning up the GPIO pin for next user
     GPIO.cleanup()
 
