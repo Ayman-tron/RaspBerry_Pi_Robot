@@ -20,7 +20,10 @@ GPIO.setup(15, GPIO.OUT)
 def main():
     forward()
     backward()
- # Reset all the GPIO pins by setting them to LOW
+
+    reset()
+
+# Reset all the GPIO pins by setting them to LOW
 
 
 def reset():
@@ -53,6 +56,8 @@ def forward():
 
     # Wait 5 seconds
     time.sleep(5)
+
+# Both motors are rotating backward
 
 
 def backward():
