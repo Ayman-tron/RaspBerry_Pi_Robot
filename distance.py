@@ -27,8 +27,9 @@ try:
         pingTravelTime = echoStopTime - echoStartTime
         # Reporting the number in milli seconds
         distance = 767 * pingTravelTime * 5280 * 12/3600
+        actual_distance = distance/2
         # Rounding to one decimal point
-        print(round(distance, 1), ' Inches')
+        print(round(actual_distance, 1), ' Inches')
         time.sleep(0.2)
 except KeyboardInterrupt():
     GPIO.cleanup()
