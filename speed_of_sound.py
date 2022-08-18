@@ -1,4 +1,3 @@
-from turtle import distance
 import RPi.GPIO as GPIO
 import time
 GPIO.setmode(GPIO.BCM)
@@ -25,13 +24,9 @@ try:
             pass
         echoStopTime = time.time()
         pingTravelTime = echoStopTime - echoStartTime
-        # Reporting the number in milli seconds
-        distance = 767 * pingTravelTime * 5280 * 12/3600
-        actual_distance = distance/2
-        # Rounding to one decimal point
-        print(round(actual_distance, 1), ' Inches')
-        # sensor required a delay before sending and receiving the ping
-        time.sleep(0.2)
+        speed_of_sound = 16/pingTravelTime*(3600)/(12*5280)
+        print('Speed', speed_of_sound)
+
 except KeyboardInterrupt():
     GPIO.cleanup()
     print("Cleanup successful")
