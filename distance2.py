@@ -9,10 +9,8 @@ echo = gpiozero.DigitalInputDevice(ECHO)
 
 try:
     while True:
-        trigger.off()
-        time.sleep(2E-6)
         trigger.on()
-        time.sleep(10E-6)
+        time.sleep(0.00001)
         trigger.off()
 
         while echo.is_active == False:
@@ -28,6 +26,7 @@ try:
         round_distance = round(distance, 1)
 
         print(round_distance)
+        time.sleep(.2)
 
 except KeyboardInterrupt():
     GPIO.cleanup()
