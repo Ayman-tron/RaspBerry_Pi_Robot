@@ -7,21 +7,27 @@ ECHO = 24
 trigger = gpiozero.OutputDevice(TRIG)
 echo = gpiozero.DigitalInputDevice(ECHO)
 
+try:
+    while True:
+        trigger.on()
+        time.sleep(0.00001)
+        trigger.off()
 
-trigger.on()
-time.sleep(0.00001)
-trigger.off()
+        while echo.is_active == False:
+            pulse_start = time.time()
 
-while echo.is_active == False:
-    pulse_start = time.time()
+        while echo.is_active == True:
+            pulse_end = time.time()
 
-while echo.is_active == True:
-    pulse_end = time.time()
+        pulse_duration = pulse_end - pulse_start
 
-pulse_duration = pulse_end - pulse_start
+        distance = 34300 * (pulse_duration/2)
 
-distance = 34300 * (pulse_duration/2)
+        round_distance = round(distance, 1)
 
-round_distance = round(distance, 1)
+        print(round_distance)
+        time.sleep(.2)
 
-print(round_distance)
+except KeyboardInterrupt():
+    GPIO.cleanup()
+    print("Cleanup successful")
