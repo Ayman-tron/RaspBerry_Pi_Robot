@@ -10,7 +10,7 @@ GPIO.setup(trigPin, GPIO.OUT)
 GPIO.setup(echoPin, GPIO.IN)
 
 try:
-    while True:
+    for i in range(20):
         GPIO.output(trigPin, 0)
         # Sleep for 2 micro seconds
         time.sleep(2E-6)
@@ -29,8 +29,10 @@ try:
         distance = 34300 * (pingTravelTime/2)
         # Rounding to one decimal point
         print(round(distance, 1), ' Inches')
+        average = distance + average
         # sensor required a delay before sending and receiving the ping
         time.sleep(0.2)
+    print("The average is: ", average)
 except KeyboardInterrupt():
     GPIO.cleanup()
     print("Cleanup successful")
