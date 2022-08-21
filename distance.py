@@ -13,7 +13,7 @@ try:
         GPIO.output(trigPin, 1)
         # Sleep for 2 micro seconds
         time.sleep(1E-6)
-        GPIO.output(trigPin, 1)
+        GPIO.output(trigPin, 0)
         while GPIO.input(echoPin) == 0:
             pass
         # Gives me the system time
