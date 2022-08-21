@@ -1,22 +1,19 @@
-from turtle import distance
 import RPi.GPIO as GPIO
 import time
-GPIO.setmode(GPIO.BCM)
+GPIO.setmode(GPIO.BOARD)
 
-trigPin = 23
-echoPin = 24
+trigPin = 16
+echoPin = 18
 
 GPIO.setup(trigPin, GPIO.OUT)
 GPIO.setup(echoPin, GPIO.IN)
-average = 0
+
 try:
-    for i in range(20):
-        GPIO.output(trigPin, 0)
-        # Sleep for 2 micro seconds
-        time.sleep(2E-6)
+    while True:
         GPIO.output(trigPin, 1)
-        time.sleep(10E-6)
-        GPIO.output(trigPin, 0)
+        # Sleep for 2 micro seconds
+        time.sleep(1E-6)
+        GPIO.output(trigPin, 1)
         while GPIO.input(echoPin) == 0:
             pass
         # Gives me the system time
@@ -28,11 +25,11 @@ try:
         # Reporting the number in milli seconds
         distance = 34300 * (pingTravelTime/2)
         # Rounding to one decimal point
-        print(round(distance, 1), ' Inches')
+        print(round(distance, 2), 'cm')
         average = distance + average
         # sensor required a delay before sending and receiving the ping
         time.sleep(0.2)
-    print("The average is: ", average/20)
+
 except KeyboardInterrupt():
     GPIO.cleanup()
     print("Cleanup successful")
