@@ -32,7 +32,7 @@ try:
         print(round_distance)
         average = round_distance + average
         time.sleep(.2)
-    print("The average is: ", average)
+    print("The average is: ", average/20)
 
 except KeyboardInterrupt():
     GPIO.cleanup()

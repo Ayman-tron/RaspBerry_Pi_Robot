@@ -8,7 +8,7 @@ echoPin = 24
 
 GPIO.setup(trigPin, GPIO.OUT)
 GPIO.setup(echoPin, GPIO.IN)
-
+average = 0
 try:
     for i in range(20):
         GPIO.output(trigPin, 0)
@@ -32,7 +32,7 @@ try:
         average = distance + average
         # sensor required a delay before sending and receiving the ping
         time.sleep(0.2)
-    print("The average is: ", average)
+    print("The average is: ", average/20)
 except KeyboardInterrupt():
     GPIO.cleanup()
     print("Cleanup successful")
