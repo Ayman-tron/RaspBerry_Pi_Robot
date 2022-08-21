@@ -26,10 +26,9 @@ try:
         echoStopTime = time.time()
         pingTravelTime = echoStopTime - echoStartTime
         # Reporting the number in milli seconds
-        distance = 767 * pingTravelTime * 5280 * 12/3600
-        actual_distance = distance/2
+        distance = 34300 * (pingTravelTime/2)
         # Rounding to one decimal point
-        print(round(actual_distance, 1), ' Inches')
+        print(round(distance, 1), ' Inches')
         # sensor required a delay before sending and receiving the ping
         time.sleep(0.2)
 except KeyboardInterrupt():
