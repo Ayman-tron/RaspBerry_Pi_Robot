@@ -26,7 +26,7 @@ try:
         distance = 34300 * (pingTravelTime/2)
         # Rounding to one decimal point
         print(round(distance, 2), 'cm')
-        average = distance + average
+
         # sensor required a delay before sending and receiving the ping
         time.sleep(0.2)
 
