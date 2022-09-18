@@ -20,7 +20,7 @@ GPIO.output(15, GPIO.HIGH)
 GPIO.output(13, GPIO.LOW)
 
 # Wait 2.5 seconds
-time.sleep(2.5)
+time.sleep(10)
 
 # Reset all the GPIO pins by setting them to LOW
 GPIO.output(11, GPIO.LOW)

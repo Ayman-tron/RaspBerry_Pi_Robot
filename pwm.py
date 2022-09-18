@@ -16,13 +16,16 @@ GPIO.setup(5, GPIO.OUT)
 GPIO.setup(13, GPIO.OUT)
 GPIO.setup(15, GPIO.OUT)
 
+GPIO.output(11, GPIO.LOW)
+GPIO.output(12, GPIO.LOW)
+GPIO.output(13, GPIO.LOW)
+GPIO.output(15, GPIO.LOW)
 
 def main():
     forward()
-    backward()
-    right()
-    left()
-
+#    backward()
+#    right()
+#    left()
     reset()
 
 # Reset all the GPIO pins by setting them to LOW
@@ -39,14 +42,15 @@ def forward():
     # Motor # 1
     # Creating a PWM object
     myPWM = GPIO.PWM(3, 100)
-    myPWM.start(50)
+    myPWM.start(99)
 
     GPIO.output(11, GPIO.HIGH)
     GPIO.output(12, GPIO.LOW)
 
     # Motor # 2
     myPWM2 = GPIO.PWM(5, 100)
-    myPWM2.start(50)
+    myPWM2.start(99)
+#    myPWM.ChangeFrequency(1000)
     GPIO.output(13, GPIO.LOW)
     GPIO.output(15, GPIO.HIGH)
 
@@ -58,13 +62,12 @@ def forward():
 
 def backward():
     myPWM = GPIO.PWM(3, 100)
-    myPWM.start(50)
-
+    myPWM.start(60)
     GPIO.output(12, GPIO.HIGH)
     GPIO.output(11, GPIO.LOW)
-
+  #  myPWM.ChangeDutyCycle(99)
     myPWM2 = GPIO.PWM(5, 100)
-    myPWM2.start(50)
+    myPWM2.start(60)
 
     GPIO.output(15, GPIO.LOW)
     GPIO.output(13, GPIO.HIGH)
@@ -76,13 +79,13 @@ def backward():
 
 def right():
     myPWM = GPIO.PWM(3, 100)
-    myPWM.start(50)
+    myPWM.start(20)
 
     GPIO.output(12, GPIO.HIGH)
     GPIO.output(11, GPIO.LOW)
 
     myPWM2 = GPIO.PWM(5, 100)
-    myPWM2.start(50)
+    myPWM2.start(20)
 
     GPIO.output(15, GPIO.HIGH)
     GPIO.output(13, GPIO.LOW)
@@ -94,13 +97,13 @@ def right():
 
 def left():
     myPWM = GPIO.PWM(3, 100)
-    myPWM.start(50)
+    myPWM.start(10)
 
     GPIO.output(12, GPIO.LOW)
     GPIO.output(11, GPIO.HIGH)
 
     myPWM2 = GPIO.PWM(5, 100)
-    myPWM2.start(50)
+    myPWM2.start(10)
 
     GPIO.output(15, GPIO.LOW)
     GPIO.output(13, GPIO.HIGH)
