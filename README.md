@@ -1,6 +1,6 @@
 ﻿# RaspBerry_Pi_Robot
 
-## Scope of the project is the development of a two wheeled mobile RaspBerry Pi Robot.
+## Scope of the project is the development of a mobile RaspBerry Pi Robot.
 
 The components that will be used in the project involve the following:
 <ul>
